@@ -1,12 +1,14 @@
 package tests;
 
+import org.junit.Test;
 import pieces.PieceColor;
 import player.Player;
 import table.Square;
 import table.Table;
 
 public class TestTable {
-    private void createTable() {
+    @Test
+    public void createTable() {
         Table table = new Table();
         //Pawns
         Square[][] squares = table.getTable();
@@ -41,18 +43,13 @@ public class TestTable {
         assert squares[7][4].getPiece().getName() == 'K' && squares[7][4].getPiece().getPieceColor() == PieceColor.WHITE;
     }
 
-    private void testValidationPieces() {
+    @Test
+    public void testValidationPieces() {
         Table table = new Table();
         Player player = new Player("A", PieceColor.WHITE);
         assert table.move(player, 6, 0, 5, 0);
         player = new Player("B", PieceColor.BLACK);
         assert table.move(player, 1, 0, 2, 0);
-
-
     }
 
-    public void runTestTable() {
-        this.createTable();
-        this.testValidationPieces();
-    }
 }

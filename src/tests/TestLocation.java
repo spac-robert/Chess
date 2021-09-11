@@ -1,9 +1,11 @@
 package tests;
 
 import common.Location;
+import org.junit.Test;
 
 public class TestLocation {
-    private void createLocation() {
+    @Test
+    public void createLocation() {
         Location location = new Location(2, 3);
         assert location.getX() == 2;
         assert location.getY() == 3;
@@ -13,7 +15,4 @@ public class TestLocation {
         assert location.getY() == 2;
     }
 
-    public void runTestLocation() {
-        this.createLocation();
-    }
 }

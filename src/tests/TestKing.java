@@ -1,13 +1,14 @@
 package tests;
 
 import common.Location;
+import org.junit.Test;
 import pieces.King;
-import pieces.Pawn;
 import pieces.Piece;
 import pieces.PieceColor;
 
 public class TestKing {
-    private void createKing() {
+    @Test
+    public void createKing() {
         Location location = new Location(5, 10);
         Piece piece = new King(location, PieceColor.WHITE);
         assert piece.getPieceColor() == PieceColor.WHITE;
@@ -15,8 +16,8 @@ public class TestKing {
         assert piece.getLocation().getY() == 10;
         assert piece.getLocation().getX() == 5;
     }
-
-    private void testSetters() {
+    @Test
+    public void testSetters() {
         Location location = new Location(5, 10);
         Piece piece = new King(location, PieceColor.WHITE);
         location = new Location(-2, -1);
@@ -28,8 +29,8 @@ public class TestKing {
         piece.setPieceColor(PieceColor.BLACK);
         assert (piece.getPieceColor() == PieceColor.BLACK);
     }
-
-    private void testValidMoveKing() {
+    @Test
+    public void testValidMoveKing() {
         Location location = new Location(2, 3);
         Piece piece = new King(location, PieceColor.BLACK);
         assert (piece.isValidMove(1, 2, 2, 2));
@@ -39,9 +40,4 @@ public class TestKing {
         assert (piece.isValidMove(7, 2, 6, 2));
     }
 
-    public void runTestKing() {
-        this.createKing();
-        this.testSetters();
-        this.testValidMoveKing();
-    }
 }
