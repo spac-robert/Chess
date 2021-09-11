@@ -1,13 +1,15 @@
 package tests;
 
 import common.Location;
+import org.junit.Test;
 import pieces.Pawn;
 import pieces.Piece;
 import pieces.PieceColor;
 import table.Square;
 
 public class TestSquare {
-    private void createSquare() {
+    @Test
+    public void createSquare() {
         Square square = new Square();
         assert !square.isOccupied();
         assert square.getPiece() == null;
@@ -20,7 +22,4 @@ public class TestSquare {
         assert square.getPiece()==piece;
     }
 
-    public void runTestSquare() {
-        this.createSquare();
-    }
 }

@@ -1,13 +1,14 @@
 package tests;
 
 import common.Location;
+import org.junit.Test;
 import pieces.Piece;
 import pieces.PieceColor;
-import pieces.Queen;
 import pieces.Rook;
 
 public class TestRook {
-    private void createRook() {
+    @Test
+    public void createRook() {
         Location location = new Location(5, 10);
         Piece piece = new Rook(location, PieceColor.WHITE);
         assert piece.getPieceColor() == PieceColor.WHITE;
@@ -15,8 +16,8 @@ public class TestRook {
         assert piece.getLocation().getY() == 10;
         assert piece.getLocation().getX() == 5;
     }
-
-    private void testSetters() {
+    @Test
+    public void testSetters() {
         Location location = new Location(5, 10);
         Piece piece = new Rook(location, PieceColor.WHITE);
         location = new Location(-2, -1);
@@ -28,8 +29,8 @@ public class TestRook {
         piece.setPieceColor(PieceColor.BLACK);
         assert (piece.getPieceColor() == PieceColor.BLACK);
     }
-
-    private void testValidMoveRook() {
+    @Test
+    public void testValidMoveRook() {
 
         Location location = new Location(1, 0);
         Piece piece = new Rook(location, PieceColor.BLACK);
@@ -40,9 +41,5 @@ public class TestRook {
         assert (piece.isValidMove(0, 0, 4, 0));
     }
 
-    public void runTestRook() {
-        this.createRook();
-        this.testSetters();
-        this.testValidMoveRook();
-    }
+
 }
